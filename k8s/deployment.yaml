@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quote-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: quote-api
+  template:
+    metadata:
+      labels:
+        app: quote-api
+    spec:
+      containers:
+        - name: quote-api
+          image: jmarquezv/quote-api:latest
+          ports:
+            - containerPort: 8000
+
